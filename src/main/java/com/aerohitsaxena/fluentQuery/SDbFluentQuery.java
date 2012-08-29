@@ -10,6 +10,7 @@ public class SDbFluentQuery {
 	private List<String> m_selectAttributes;
 	private StringUtils m_strUtil;
 	private String m_orderByClause;
+	private String m_limitClause;
 
 	public SDbFluentQuery() {
 		m_strUtil = new StringUtils();
@@ -45,30 +46,43 @@ public class SDbFluentQuery {
 
 	public SDbFluentQuery orderBy(String attribute) {
 		checkNotEmpty(attribute);
-		m_orderByClause = attribute;
+		setOrderByClause(attribute);
 		return this;
 	}
 
 	public SDbFluentQuery orderByAscending(String attribute) {
 		checkNotEmpty(attribute);
-		m_orderByClause = attribute + " asc";
+		setOrderByClause(attribute + " asc");
 		return this;
 	}
 
 	public SDbFluentQuery orderByDescending(String attribute) {
 		checkNotEmpty(attribute);
-		m_orderByClause = attribute + " desc";
+		setOrderByClause(attribute + " desc");
 		return this;
+	}
+
+	public SDbFluentQuery limit(int limit) {
+		Preconditions.check(limit > 0);
+		m_limitClause = " limit " + limit;
+		return this;
+	}
+
+	private void setOrderByClause(String attribute) {
+		m_orderByClause = " order by " + attribute;
 	}
 
 	private String selectExpression(String fieldsClause) {
 		checkNotEmpty(m_domainName);
 		String expression = "select " + fieldsClause + " from " + m_domainName;
-		if (m_orderByClause == null) {
-			return expression;
-		} else {
-			return expression + " order by " + m_orderByClause;
+		StringBuilder sb = new StringBuilder(expression);
+		if (m_orderByClause != null) {
+			sb.append(m_orderByClause);
 		}
+		if (m_limitClause != null) {
+			sb.append(m_limitClause);
+		}
+		return sb.toString();
 	}
 
 	private String commaJoin(List<String> fields) {

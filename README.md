@@ -43,3 +43,11 @@ Would spit,
     "select * from DomainName order by attribute1 desc"
 
 respectively.
+
+#### Limiting results
+
+    query.selectAll().from("DomainName").limit(5);
+
+Would spit,
+    
+    "select * from DomainName limit 5"

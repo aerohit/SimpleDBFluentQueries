@@ -121,4 +121,20 @@ public class SDbFluentQueryTest {
 		String expected = "select * from DomainName order by attribute1 desc";
 		assertEquals(expected, query.build());
 	}
+
+	@Test(expected = SDbFluentQueryException.class)
+	public void testLimitWithNegative() {
+		query.selectAll().from("DomainName").limit(-4).build();
+	}
+
+	@Test(expected = SDbFluentQueryException.class)
+	public void testLimitWithZero() {
+		query.selectAll().from("DomainName").limit(0).build();
+	}
+
+	@Test
+	public void testLimitWithPositive() {
+		query.selectAll().from("DomainName").limit(5);
+		assertEquals("select * from DomainName limit 5", query.build());
+	}
 }
