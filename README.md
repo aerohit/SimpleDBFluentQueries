@@ -29,3 +29,17 @@ Would spit,
 Would spit,
     
     "select count(*) from DomainName"
+
+#### Ordering results
+    
+    query.selectAll().from("DomainName").orderBy("attribute1").build();
+    query.selectAll().from("DomainName").orderByAscending("attribute1").build();
+    query.selectAll().from("DomainName").orderByDescending("attribute1").build();
+
+Would spit,
+    
+    "select * from DomainName order by attribute1"
+    "select * from DomainName order by attribute1 asc"
+    "select * from DomainName order by attribute1 desc"
+
+respectively.
