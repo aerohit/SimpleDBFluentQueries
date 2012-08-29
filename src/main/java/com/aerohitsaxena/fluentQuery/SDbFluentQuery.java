@@ -15,6 +15,22 @@ public class SDbFluentQuery {
 		m_fields = Lists.newArrayList();
 	}
 
+	public SDbFluentQuery selectAll() {
+		return select("*");
+	}
+
+	public SDbFluentQuery select(String attribute, String... moreAttributes) {
+		addAttribute(attribute);
+		for (int i = 0; i < moreAttributes.length; i++) {
+			addAttribute(moreAttributes[i]);
+		}
+		return this;
+	}
+
+	public SDbFluentQuery count() {
+		return select("count(*)");
+	}
+
 	public SDbFluentQuery from(String database) {
 		checkNotEmpty(database);
 		m_database = database;
@@ -22,11 +38,8 @@ public class SDbFluentQuery {
 	}
 
 	public String build() {
-		if (m_fields.size() == 0) {
-			return selectExpression("*");
-		} else {
-			return selectExpression(commaJoin(m_fields));
-		}
+		Preconditions.check(m_fields.size() != 0);
+		return selectExpression(commaJoin(m_fields));
 	}
 
 	private String selectExpression(String fieldsClause) {
@@ -36,14 +49,6 @@ public class SDbFluentQuery {
 
 	private String commaJoin(List<String> fields) {
 		return Joiner.on(", ").join(fields);
-	}
-
-	public SDbFluentQuery select(String attribute, String... moreAttributes) {
-		addAttribute(attribute);
-		for (int i = 0; i < moreAttributes.length; i++) {
-			addAttribute(moreAttributes[i]);
-		}
-		return this;
 	}
 
 	private void addAttribute(String attribute) {

@@ -29,39 +29,45 @@ public class SDbFluentQueryTest {
 	}
 
 	@Test
-	public void testSelectWithNoAttributeSpecified() {
-		query.from("MyDatabase");
-		assertEquals("select * from MyDatabase", query.build());
+	public void testSelectAll() {
+		query.selectAll().from("DomainName");
+		assertEquals("select * from DomainName", query.build());
 	}
 
 	@Test(expected = SDbFluentQueryException.class)
 	public void testSelectWithNullAttribute() {
-		query.select(null).from("MyDatabase").build();
+		query.select(null).from("DomainName").build();
 	}
 
 	@Test(expected = SDbFluentQueryException.class)
 	public void testSelectWithEmptyAttribute() {
-		query.select("   ").from("MyDatabase").build();
+		query.select("   ").from("DomainName").build();
 	}
 
 	@Test
 	public void testSelectWithOneAttribute() {
-		query.select("attribute1").from("MyDatabase");
-		assertEquals("select attribute1 from MyDatabase", query.build());
+		query.select("attribute1").from("DomainName");
+		assertEquals("select attribute1 from DomainName", query.build());
 	}
 
 	@Test
 	public void testSelectWithTwoAttributes() {
-		query.select("attribute1").select("attribute2").from("MyDatabase");
-		String expected = "select attribute1, attribute2 from MyDatabase";
+		query.select("attribute1").select("attribute2").from("DomainName");
+		String expected = "select attribute1, attribute2 from DomainName";
 		assertEquals(expected, query.build());
 	}
 
 	@Test
 	public void testSelectWithVariableAttributes() {
 		query.select("attribute1", "attribute2", "attribute3");
-		query.from("MyDatabase");
-		String expected = "select attribute1, attribute2, attribute3 from MyDatabase";
+		query.from("DomainName");
+		String expected = "select attribute1, attribute2, attribute3 from DomainName";
 		assertEquals(expected, query.build());
+	}
+
+	@Test
+	public void testCountResults() {
+		query.count().from("DomainName");
+		assertEquals("select count(*) from DomainName", query.build());
 	}
 }
