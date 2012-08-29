@@ -4,7 +4,7 @@ This is still in development and hence there are features to be added.
 
 #### Creating a query object
 
-    SDbFluentQuery query = new SDbFluentQuery();
+    SimpleDBFluentQuery query = new SimpleDBFluentQuery();
 
 #### Selecting all attributes
 
@@ -46,7 +46,7 @@ respectively.
 
 #### Limiting results
 
-    query.selectAll().from("DomainName").limit(5);
+    query.selectAll().from("DomainName").limit(5).build();
 
 Would spit,
     

@@ -5,12 +5,12 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-public class SDbFluentQueryTest {
-	private SDbFluentQuery query;
+public class SimpleDBFluentQueryTest {
+	private SimpleDBFluentQuery query;
 
 	@Before
 	public void setUp() {
-		query = new SDbFluentQuery();
+		query = new SimpleDBFluentQuery();
 	}
 
 	@Test(expected = SDbFluentQueryException.class)
