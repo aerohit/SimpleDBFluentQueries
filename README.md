@@ -1,10 +1,14 @@
-This is still in development and hence there are features to be added.
+**Caveats**
+- Since the library is under development, features may be desired/missing.
+- Also since its under active development, the documentation may become outdated,
+  refer to the unit-tests for the API.
+
 
 ## A fluent Java API for spitting Amazon SimpleDB search queries
 
 #### Creating a query object
 
-    SimpleDBFluentQuery query = new SimpleDBFluentQuery();
+    SimpleDBQuery query = new SimpleDBQuery();
 
 #### Selecting all attributes
 
