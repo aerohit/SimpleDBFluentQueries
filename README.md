@@ -2,7 +2,7 @@
 
 ### Motivation
 
-[Amazon SimpleDB's Queries](http://docs.amazonwebservices.com/AmazonSimpleDB/latest/DeveloperGuide/UsingSelect.html)
+[Amazon SimpleDB Queries](http://docs.amazonwebservices.com/AmazonSimpleDB/latest/DeveloperGuide/UsingSelect.html)
 has a very simple syntax for querying on data stored in their DB. I was searching 
 for a query builder in Java but couldn't find one. Hence I decided to write my own.
 
