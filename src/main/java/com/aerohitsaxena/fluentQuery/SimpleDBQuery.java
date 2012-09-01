@@ -2,6 +2,8 @@ package com.aerohitsaxena.fluentQuery;
 
 import java.util.List;
 
+import com.aerohitsaxena.fluentQuery.utils.Preconditions;
+import com.aerohitsaxena.fluentQuery.utils.StringUtils;
 import com.google.common.base.Joiner;
 import com.google.common.collect.Lists;
 

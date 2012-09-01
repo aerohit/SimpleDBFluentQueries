@@ -1,56 +1,48 @@
-package com.aerohitsaxena.fluentQuery;
+package com.aerohitsaxena.fluentQuery.utils;
 
 import static org.junit.Assert.assertFalse;
 import static org.junit.Assert.assertTrue;
 
-import org.junit.Before;
 import org.junit.Test;
 
 public class StringUtilsTest {
-	StringUtils util;
-
-	@Before
-	public void setUp() {
-		util = new StringUtils();
-	}
-
 	@Test
 	public void testIsEmptyWithNull() {
-		assertTrue("Result", util.isEmpty(null));
+		assertTrue("Result", StringUtils.isEmpty(null));
 	}
 
 	@Test
 	public void testIsEmptyWithEmptyString() {
-		assertTrue("Result", util.isEmpty(""));
+		assertTrue("Result", StringUtils.isEmpty(""));
 	}
 
 	@Test
 	public void testIsEmptyWithWhiteSpaces() {
-		assertTrue("Result", util.isEmpty("   "));
+		assertTrue("Result", StringUtils.isEmpty("   "));
 	}
 
 	@Test
 	public void testIsEmptyWithNonEmptyString() {
-		assertFalse("Result", util.isEmpty(" xyz  "));
+		assertFalse("Result", StringUtils.isEmpty(" xyz  "));
 	}
 
 	@Test
 	public void testIsNotEmptyWithNull() {
-		assertFalse("Result", util.isNotEmpty(null));
+		assertFalse("Result", StringUtils.isNotEmpty(null));
 	}
 
 	@Test
 	public void testIsNotEmptyWithEmptyString() {
-		assertFalse("Result", util.isNotEmpty(""));
+		assertFalse("Result", StringUtils.isNotEmpty(""));
 	}
 
 	@Test
 	public void testIsNotEmptyWithWhiteSpaces() {
-		assertFalse("Result", util.isNotEmpty("   "));
+		assertFalse("Result", StringUtils.isNotEmpty("   "));
 	}
 
 	@Test
 	public void testIsNotEmptyWithNonEmptyString() {
-		assertTrue("Result", util.isNotEmpty(" xyz  "));
+		assertTrue("Result", StringUtils.isNotEmpty(" xyz  "));
 	}
 }

@@ -5,6 +5,8 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
+import com.aerohitsaxena.fluentQuery.exception.SDbFluentQueryException;
+
 public class SimpleDBQueryTest {
 	private SimpleDBQuery query;
 

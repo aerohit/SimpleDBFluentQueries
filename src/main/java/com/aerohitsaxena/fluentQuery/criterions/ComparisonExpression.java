@@ -1,8 +1,8 @@
 package com.aerohitsaxena.fluentQuery.criterions;
 
-import com.aerohitsaxena.fluentQuery.Preconditions;
-import com.aerohitsaxena.fluentQuery.StringUtils;
 import com.aerohitsaxena.fluentQuery.operators.BinaryComparators;
+import com.aerohitsaxena.fluentQuery.utils.Preconditions;
+import com.aerohitsaxena.fluentQuery.utils.StringUtils;
 
 public class ComparisonExpression implements Criterion {
 	private final String m_attribute;

@@ -5,7 +5,7 @@ import static org.junit.Assert.assertEquals;
 import org.junit.Before;
 import org.junit.Test;
 
-import com.aerohitsaxena.fluentQuery.SDbFluentQueryException;
+import com.aerohitsaxena.fluentQuery.exception.SDbFluentQueryException;
 import com.aerohitsaxena.fluentQuery.operators.LogicalOperators;
 
 public class LogicalExpressionTest {

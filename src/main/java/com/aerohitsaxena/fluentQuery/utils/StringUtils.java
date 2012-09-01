@@ -1,4 +1,4 @@
-package com.aerohitsaxena.fluentQuery;
+package com.aerohitsaxena.fluentQuery.utils;
 
 import com.google.common.base.Joiner;
 

@@ -1,8 +1,9 @@
 package com.aerohitsaxena.fluentQuery.criterions;
 
-import com.aerohitsaxena.fluentQuery.Preconditions;
-import com.aerohitsaxena.fluentQuery.StringUtils;
 import com.aerohitsaxena.fluentQuery.operators.LogicalOperators;
+import com.aerohitsaxena.fluentQuery.utils.CriterionValidator;
+import com.aerohitsaxena.fluentQuery.utils.Preconditions;
+import com.aerohitsaxena.fluentQuery.utils.StringUtils;
 
 public class LogicalExpression implements Criterion {
 	private final Criterion m_c1;

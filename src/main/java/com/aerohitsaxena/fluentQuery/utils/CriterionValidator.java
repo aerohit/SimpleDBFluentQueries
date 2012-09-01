@@ -1,7 +1,6 @@
-package com.aerohitsaxena.fluentQuery.criterions;
+package com.aerohitsaxena.fluentQuery.utils;
 
-import com.aerohitsaxena.fluentQuery.Preconditions;
-import com.aerohitsaxena.fluentQuery.StringUtils;
+import com.aerohitsaxena.fluentQuery.criterions.Criterion;
 
 public class CriterionValidator {
 	public static void validate(Criterion c) {

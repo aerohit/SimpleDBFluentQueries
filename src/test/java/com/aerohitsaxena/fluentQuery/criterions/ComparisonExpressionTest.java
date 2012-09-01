@@ -1,10 +1,11 @@
-package com.aerohitsaxena.fluentQuery;
+package com.aerohitsaxena.fluentQuery.criterions;
 
 import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
 import com.aerohitsaxena.fluentQuery.criterions.ComparisonExpression;
+import com.aerohitsaxena.fluentQuery.exception.SDbFluentQueryException;
 import com.aerohitsaxena.fluentQuery.operators.BinaryComparators;
 
 public class ComparisonExpressionTest {

@@ -5,6 +5,7 @@ import com.aerohitsaxena.fluentQuery.criterions.Criterion;
 import com.aerohitsaxena.fluentQuery.criterions.LogicalExpression;
 import com.aerohitsaxena.fluentQuery.operators.BinaryComparators;
 import com.aerohitsaxena.fluentQuery.operators.LogicalOperators;
+import com.aerohitsaxena.fluentQuery.utils.StringUtils;
 
 public class Restriction {
 	public static ComparisonExpression eq(String key, String value) {
