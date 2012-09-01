@@ -4,36 +4,39 @@ import static org.junit.Assert.assertEquals;
 
 import org.junit.Test;
 
-public class BinaryComparisonCriterionTest {
+import com.aerohitsaxena.fluentQuery.criterions.ComparisonExpression;
+import com.aerohitsaxena.fluentQuery.operators.BinaryComparators;
+
+public class ComparisonExpressionTest {
 	@Test(expected = SDbFluentQueryException.class)
 	public void shouldNotAcceptNullAttribute() {
-		new BinaryComparisonCriterion(null, "val", BinaryComparators.EQ);
+		new ComparisonExpression(null, "val", BinaryComparators.EQ);
 	}
 
 	@Test(expected = SDbFluentQueryException.class)
 	public void shouldNotAcceptEmptyAttribute() {
-		new BinaryComparisonCriterion("  ", "val", BinaryComparators.EQ);
+		new ComparisonExpression("  ", "val", BinaryComparators.EQ);
 	}
 
 	@Test(expected = SDbFluentQueryException.class)
 	public void shouldNotAcceptNullval() {
-		new BinaryComparisonCriterion("attr", null, BinaryComparators.EQ);
+		new ComparisonExpression("attr", null, BinaryComparators.EQ);
 	}
 
 	@Test(expected = SDbFluentQueryException.class)
 	public void shouldNotAcceptEmptyval() {
-		new BinaryComparisonCriterion("attr", "  ", BinaryComparators.EQ);
+		new ComparisonExpression("attr", "  ", BinaryComparators.EQ);
 	}
 
 	@Test(expected = SDbFluentQueryException.class)
 	public void shouldNotAcceptNullComparator() {
-		new BinaryComparisonCriterion("attr", "val", null);
+		new ComparisonExpression("attr", "val", null);
 	}
 
 	@Test
 	public void shouldFormValidExpressions() {
-		BinaryComparisonCriterion c = new BinaryComparisonCriterion("attr",
-				"val", BinaryComparators.EQ);
+		BinaryComparators eq = BinaryComparators.EQ;
+		ComparisonExpression c = new ComparisonExpression("attr", "val", eq);
 		assertEquals("attr = 'val'", c.toSql());
 	}
 }

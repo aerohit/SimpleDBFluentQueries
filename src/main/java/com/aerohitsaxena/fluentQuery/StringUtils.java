@@ -18,4 +18,8 @@ public class StringUtils {
 	public static String spaceJoin(String... strings) {
 		return Joiner.on(" ").join(strings);
 	}
+
+	public static String quote(String string) {
+		return "'" + string + "'";
+	}
 }

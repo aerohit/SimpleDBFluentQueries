@@ -1,13 +1,15 @@
-package com.aerohitsaxena.fluentQuery;
+package com.aerohitsaxena.fluentQuery.criterions;
 
-import com.google.common.base.Joiner;
+import com.aerohitsaxena.fluentQuery.Preconditions;
+import com.aerohitsaxena.fluentQuery.StringUtils;
+import com.aerohitsaxena.fluentQuery.operators.BinaryComparators;
 
-public class BinaryComparisonCriterion implements Criterion {
+public class ComparisonExpression implements Criterion {
 	private final String m_attribute;
 	private final String m_value;
 	private final BinaryComparators m_comparator;
 
-	public BinaryComparisonCriterion(String attribute, String value,
+	public ComparisonExpression(String attribute, String value,
 			BinaryComparators comparator) {
 		StringUtils.validateNotEmpty(attribute);
 		StringUtils.validateNotEmpty(value);
@@ -28,6 +30,6 @@ public class BinaryComparisonCriterion implements Criterion {
 	}
 
 	private String spaceJoin(String... strings) {
-		return Joiner.on(" ").join(strings);
+		return StringUtils.spaceJoin(strings);
 	}
 }

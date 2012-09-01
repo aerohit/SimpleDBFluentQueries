@@ -1,4 +1,4 @@
-package com.aerohitsaxena.fluentQuery;
+package com.aerohitsaxena.fluentQuery.operators;
 
 public enum BinaryComparators {
 	EQ("="), NEQ("!="), GT(">"), GTE(">="), LT("<"), LTE("<=");
